@@ -1,16 +1,16 @@
 package org.jbpm.spring;
 
-import static org.kie.scanner.MavenRepository.getMavenRepository;
 
 import java.io.File;
 import java.io.FilenameFilter;
 
+import org.appformer.maven.integration.MavenRepository;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.kie.api.KieServices;
 import org.kie.api.builder.ReleaseId;
-import org.kie.scanner.MavenRepository;
+
 
 import bitronix.tm.resource.jdbc.PoolingDataSource;
 
@@ -27,7 +27,7 @@ public abstract class AbstractTest {
         ReleaseId releaseId = ks.newReleaseId(GROUP_ID, ARTIFACT_ID, VERSION);
         File kjar = new File("src/test/resources/kjar/jbpm-module.jar");
         File pom = new File("src/test/resources/kjar/pom.xml");
-        MavenRepository repository = getMavenRepository();
+        MavenRepository repository = MavenRepository.getMavenRepository();
         repository.installArtifact(releaseId, kjar, pom);
 		
 		System.setProperty("java.naming.factory.initial",
