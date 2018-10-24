@@ -19,7 +19,7 @@
 	<tx:annotation-driven />
 	<tx:jta-transaction-manager />                
 
-	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" lazy-init="true" />
 
 
 </beans>
